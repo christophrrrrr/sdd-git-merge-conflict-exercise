@@ -13,10 +13,14 @@ def calculate_total(
     # TODO: apply your assigned feature's pricing rule here, gated behind
     # its argument (apply_discount, apply_tax, or apply_shipping)
 
+    # Feature A: loyalty discount — 10% off carts over $50
+    if apply_discount and total > 50:
+        total = total * 0.9
 
+    # Feature B: 8% sales tax on the (possibly discounted) total
     if apply_tax:
-        tax_rate = 0.08  
-        total += subtotal * tax_rate
+        total = total * 1.08
+
     return total
 
 
